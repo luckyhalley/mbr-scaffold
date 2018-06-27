@@ -1,0 +1,11 @@
+{
+  "name": "scaffold",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "git@github.com:luckyhalley/mbr-scaffold.git",
+  "author": "luckyhalley <mky81@126.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.4.1"
+  }
+}
