@@ -5,7 +5,78 @@
   "repository": "git@github.com:luckyhalley/mbr-scaffold.git",
   "author": "luckyhalley <mky81@126.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development node server",
+    "build:dll": "node ./internals/scripts/dependencies.js"
+  },
+  "dllPlugin": {
+    "path": "node_modules/dev-dlls",
+    "exclude": [
+      "chalk",
+      "cross-env",
+      "express",
+      "minimist",
+      "sanitize.css"
+    ],
+    "include": [
+      "core-js",
+      "lodash"
+    ]
+  },
   "dependencies": {
-    "react": "^16.4.1"
+    "chalk": "^2.4.1",
+    "cross-env": "^5.2.0",
+    "express": "^4.16.3",
+    "lodash": "^4.17.10",
+    "minimist": "^1.2.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-loadable": "^5.4.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^4.0.0",
+    "redux-saga": "^0.16.0",
+    "sanitize.css": "^6.0.0"
+  },
+  "devDependencies": {
+    "add-asset-html-webpack-plugin": "^2.1.3",
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.3",
+    "babel-eslint": "8.2.3",
+    "babel-loader": "7.1.4",
+    "babel-plugin-dynamic-import-node": "1.2.0",
+    "babel-plugin-react-intl": "2.4.0",
+    "babel-plugin-react-transform": "3.0.0",
+    "babel-plugin-styled-components": "1.5.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "6.26.2",
+    "babel-plugin-transform-react-constant-elements": "6.23.0",
+    "babel-plugin-transform-react-inline-elements": "6.22.0",
+    "babel-plugin-transform-react-jsx-source": "6.22.0",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.13",
+    "babel-preset-env": "1.7.0",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-0": "6.24.1",
+    "circular-dependency-plugin": "^5.0.2",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-import-resolver-webpack": "0.10.0",
+    "eslint-plugin-import": "2.12.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-prettier": "^2.6.1",
+    "eslint-plugin-react": "7.9.1",
+    "eslint-plugin-redux-saga": "0.9.0",
+    "eventsource-polyfill": "^0.9.6",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "shelljs": "^0.8.2",
+    "url-loader": "1.0.1",
+    "webpack": "4.12.0",
+    "webpack-cli": "3.0.8",
+    "webpack-dev-middleware": "3.1.3",
+    "webpack-hot-middleware": "2.22.2",
+    "webpack-pwa-manifest": "3.6.2"
   }
 }
