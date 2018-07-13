@@ -1,0 +1,8 @@
+$browser-default-font-size: 75px;
+$font-color:#fff;
+$front-color: rgb(255,201,0);
+$backgournd-color:#000;
+
+@function pxTorem($px){
+  @return $px / $browser-default-font-size * 1rem;
+}
