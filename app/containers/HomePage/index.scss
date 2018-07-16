@@ -1,0 +1,41 @@
+@import 'styles/config';
+.items {
+    box-sizing: border-box;
+    width: pxTorem(600px);
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    padding: 0;
+    li{
+        width: pxTorem(600px);
+        background-color: #fff;
+        list-style: none;
+        overflow: hidden;
+        margin: 20px auto;
+        input {
+            width: 100%;
+            height: pxTorem(200px);
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            border: 1px solid #fdfdfd;
+
+        }
+        textarea{
+            width: 100%;
+            height: pxTorem(500px);
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            border: 1px solid #fdfdfd;
+        }
+    }
+    .item {
+        height: pxTorem(200px);
+    }
+    .muitem{
+        height: pxTorem(500px);
+    }
+}
