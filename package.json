@@ -61,13 +61,13 @@
     ]
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "chalk": "^2.4.1",
     "cross-env": "^5.2.0",
     "express": "^4.16.3",
     "history": "^4.7.2",
     "immutable": "^3.8.2",
     "ip": "^1.1.5",
-    "koa": "^2.5.2",
     "lodash": "^4.17.10",
     "minimist": "^1.2.0",
     "react": "^16.4.1",

@@ -51,8 +51,10 @@ module.exports = require('./webpack.base.babel')({
       hashDigestLength: 20,
     }),
   ],
-
+  devtool: false,
   performance: {
+    maxAssetSize: 500000,
+    maxEntrypointSize: 500000,
     assetFilter: assetFilename =>
       !/(\.map$)|(^(main\.|favicon\.))/.test(assetFilename),
   },
