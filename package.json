@@ -23,7 +23,7 @@
         }
       ],
       "react",
-      "stage-0"
+      "stage-1"
     ],
     "env": {
       "production": {

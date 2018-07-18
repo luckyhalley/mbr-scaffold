@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './index.scss'
-import { loadUser } from '../App/actions'
 import { getDetail } from './actions'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
@@ -38,17 +37,18 @@ const mapStateToProps = createStructuredSelector({
     loading: makeSelectLoading(),
     username: makeSelectCurrentUser(),
     info: makeSelectDetailState()
-});
+})
 
 const withConnect = connect(
     mapStateToProps,
     mapDispatchToProps,
-);
+)
 
 const withReducer = injectReducer({ key: 'detail', reducer })
 const withSaga = injectSaga({ key: 'detail', saga })
+
 export default compose(
     withReducer,
     withSaga,
     withConnect,
-)(DetailPage);
+)(DetailPage)

@@ -4,6 +4,7 @@ import { loadUser } from '../App/actions'
 import { getList } from './actions'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { createStructuredSelector } from 'reselect'
 import { makeSelectCurrentUser } from 'containers/App/selectors'
 import { makeSelectHomeState, makeSelectLoading, makeSelectError } from './selectors';
@@ -11,13 +12,19 @@ import injectReducer from 'utils/injectReducer'
 import injectSaga from 'utils/injectSaga'
 import reducer from './reducer'
 import saga from './saga'
+import { Cookie } from 'utils/common'
+import Mock from 'mockjs'
 
 class HomePage extends React.PureComponent {
+    componentWillMount() {
+        let user = Mock.mock({"name": '@cname'})
+        Cookie.setItem ('user', user.name)
+    }
     render() {
         const { loading, error, list } = this.props
         let ListContainer = list.map((item, index) => {
             return (
-                <li key={item.value}><span>用户ID: {item.id}</span><span>姓名: {item.name}</span><a href="/detail">详细</a></li>
+                <li key={item.id}><span>用户ID: {item.id}</span><span>姓名: {item.name}</span><Link to="/detail">详细</Link></li>
             )
         })
         return (
@@ -39,24 +46,25 @@ export function mapDispatchToProps(dispatch) {
         getList: evt => {
             dispatch(getList())
         }
-    };
+    }
 }
 
 const mapStateToProps = createStructuredSelector({
     loading: makeSelectLoading(),
     username: makeSelectCurrentUser(),
     list: makeSelectHomeState()
-});
+})
 
 const withConnect = connect(
     mapStateToProps,
     mapDispatchToProps,
-);
+)
 
 const withReducer = injectReducer({ key: 'home', reducer })
 const withSaga = injectSaga({ key: 'home', saga })
+
 export default compose(
     withReducer,
     withSaga,
     withConnect,
-)(HomePage);
+)(HomePage)

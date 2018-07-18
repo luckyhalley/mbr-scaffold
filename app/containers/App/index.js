@@ -3,10 +3,11 @@ import { Switch, Route } from 'react-router-dom'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 import HomePage from 'containers/HomePage'
-import DetailPage from 'containers/DetailPage'
-import NotFoundPage from 'containers/NotFoundPage'
+import asyncComponent from 'utils/asyncComponent'
 
 const AppWrapper = `div`
+const DetailPage = asyncComponent(() => import("containers/DetailPage"))
+const NotFoundPage = asyncComponent(() => import("containers/NotFoundPage"))
 
 export default function App() {
     return (
@@ -19,5 +20,5 @@ export default function App() {
             </Switch>
             <Footer />
         </AppWrapper>
-    );
+    )
 }
