@@ -14,7 +14,7 @@
         margin: 20px auto;
         input {
             width: 100%;
-            height: pxTorem(200px);
+            height: pxTorem(100px);
             overflow: hidden;
             margin: 0;
             padding: 0;
@@ -33,9 +33,28 @@
         }
     }
     .item {
-        height: pxTorem(200px);
+        height: pxTorem(100px);
     }
     .muitem{
         height: pxTorem(500px);
+    }
+}
+
+.list{
+    width: 100%;
+    list-style: none;
+    li{
+        width: 80%;
+        line-height: pxTorem(60px);
+        display: block;
+        margin:0 auto;
+    }
+    span, a{
+        display: inline-block;
+        width: 30%;
+        text-align: center;
+    }
+    a{
+        color: $font-color-green;
     }
 }

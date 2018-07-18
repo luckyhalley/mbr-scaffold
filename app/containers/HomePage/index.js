@@ -1,29 +1,33 @@
 import React from 'react'
 import styles from './index.scss'
 import { loadUser } from '../App/actions'
+import { getList } from './actions'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
-import { makeSelectCurrentUser, makeSelectLoading, makeSelectError } from 'containers/App/selectors'
-import { makeSelectHomeState } from './selectors';
-
-// import injectReducer from 'utils/injectReducer'
-// import injectSaga from 'utils/injectSaga'
-// import reducer from './reducer';
-// import saga from './saga';
-
+import { makeSelectCurrentUser } from 'containers/App/selectors'
+import { makeSelectHomeState, makeSelectLoading, makeSelectError } from './selectors';
+import injectReducer from 'utils/injectReducer'
+import injectSaga from 'utils/injectSaga'
+import reducer from './reducer'
+import saga from './saga'
 
 class HomePage extends React.PureComponent {
     render() {
+        const { loading, error, list } = this.props
+        let ListContainer = list.map((item, index) => {
+            return (
+                <li key={item.value}><span>用户ID: {item.id}</span><span>姓名: {item.name}</span><a href="/detail">详细</a></li>
+            )
+        })
         return (
             <div>
                 <ul className={styles.items} >
-                    <li className={styles.item}><input type="button" value="设置用户名" onClick={this.props.setuser}/></li>
-                    <li className={styles.item}><input type="button" value="获取用户名" onClick={this.props.getusername}/></li>
-                    <li className={styles.item}><input type="button" value="获取用户信息" onClick={this.props.getuser}/></li>
-                    <li className={styles.item}><input type="text" placeholder="用户名" value={this.props.username} readOnly/></li>
-                    <li className={styles.muitem}><textarea placeholder="用户信息"  className={styles.mutitem} readOnly/></li>
+                    <li className={styles.item}><input type="button" value="同步action" onClick={this.props.getName}/></li>
+                    <li className={styles.item}><input type="text" placeholder="当前用户：" value={this.props.username} readOnly/></li>
+                    <li className={styles.item}><input type="button" value="异步action" onClick={this.props.getList}/></li>
                 </ul>
+                <ul className={styles.list}>{ListContainer}</ul>
             </div>
         )
     }
@@ -31,16 +35,17 @@ class HomePage extends React.PureComponent {
 
 export function mapDispatchToProps(dispatch) {
     return {
-        getusername: evt => dispatch(loadUser(evt.target.value)),
-        getuser: evt => {
-            dispatch(loadUser(evt.target.value))
+        getName: evt => dispatch(loadUser(evt.target.value)),
+        getList: evt => {
+            dispatch(getList())
         }
     };
 }
 
 const mapStateToProps = createStructuredSelector({
+    loading: makeSelectLoading(),
     username: makeSelectCurrentUser(),
-    info: makeSelectHomeState()
+    list: makeSelectHomeState()
 });
 
 const withConnect = connect(
@@ -48,10 +53,10 @@ const withConnect = connect(
     mapDispatchToProps,
 );
 
-// const withReducer = injectReducer({ key: 'home', reducer });
-// const withSaga = injectSaga({ key: 'home', saga });
+const withReducer = injectReducer({ key: 'home', reducer })
+const withSaga = injectSaga({ key: 'home', saga })
 export default compose(
-    // withReducer,
-    // withSaga,
+    withReducer,
+    withSaga,
     withConnect,
 )(HomePage);

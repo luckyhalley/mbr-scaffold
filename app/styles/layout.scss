@@ -1,9 +1,13 @@
 @import 'config';
 @import 'icon-font';
 
+html {
+    height: 100%;
+}
 body{
     background: $backgournd-color;
     color: $font-color;
     margin: 0;
+    height: 100%;
 }
 

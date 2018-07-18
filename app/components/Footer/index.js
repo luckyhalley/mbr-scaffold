@@ -5,7 +5,7 @@ class Footer extends React.Component {
         return (
             <div className={styles.footer}>
                 <i className={`icon-star ${styles.star}`}></i>
-                <span>Footer</span>
+                <span>Footer file-loader测试</span>
                 <i className={`icon-star ${styles.star}`}></i>
             </div>
         )

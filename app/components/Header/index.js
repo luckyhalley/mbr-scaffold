@@ -5,7 +5,7 @@ class Header extends React.Component {
         return (
             <div className={styles.header}>
                 <i className={`icon-star-solid ${styles.star}`}></i>
-                <span>Header</span>
+                <span>Header file-loader测试</span>
                 <i className={`icon-star-solid ${styles.star}`}></i>
             </div>
         )

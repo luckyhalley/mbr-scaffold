@@ -1,25 +1,24 @@
 import { fromJS } from 'immutable'
-import { GET_LIST, GET_LIST_SUCCESS } from './constants'
+import { GET_DETAIL, GET_DETAIL_SUCCESS } from './constants'
 
 export const initialState = fromJS({
-  list: [],
+  info: {},
   loading: false,
   error: false
-  
 })
 
-function homeReducer(state = initialState, action) {
+function detailReducer(state = initialState, action) {
     switch (action.type) {
-        case GET_LIST:
+        case GET_DETAIL:
           return state.set('loading', true)
-        case GET_LIST_SUCCESS:
+        case GET_DETAIL_SUCCESS:
           return state
             .set('loading', false)
-            .set('list', action.list)
+            .set('info', action.info)
             .set('error', false)              
         default:
           return state
     }
 }
 
-export default homeReducer
+export default detailReducer

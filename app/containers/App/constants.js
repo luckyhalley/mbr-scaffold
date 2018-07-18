@@ -1,1 +1,1 @@
-export const LOAD_USER = '/App/LOAD_USER'
+export const LOAD_USER = '@@App/LOAD_USER'

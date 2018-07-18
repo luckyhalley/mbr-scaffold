@@ -1,14 +1,14 @@
 @import 'styles/config';
 .header {
-    height: pxTorem(200px);
+    height: pxTorem(100px);
     width: 100%;
     color: $font-color;
     text-align: center;
     line-height: pxTorem(200px);
 }
 .star {
-    width: pxTorem(150px);
-    height: pxTorem(150px);
+    width: pxTorem(50px);
+    height: pxTorem(50px);
     display: inline-block;
     padding: 0 5px;
     font-size: 18px;

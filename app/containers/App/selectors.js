@@ -9,8 +9,6 @@ const selectGlobal = state => state.get('global')
 const selectRoute = state => state.get('route')
 /** 保存在全局的state信息 **/
 const makeSelectCurrentUser = () => createSelector(selectGlobal, globalState => globalState.get('username'))
-const makeSelectLoading = () => createSelector(selectGlobal, globalState => globalState.get('loading'))
-const makeSelectError = () => createSelector(selectGlobal, globalState => globalState.get('error'))
 /** 路由state信息 **/
 const makeSelectLocation = () => createSelector(selectRoute, routeState => routeState.get('location').toJS())
 
