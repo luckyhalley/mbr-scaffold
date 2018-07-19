@@ -26,7 +26,6 @@ module.exports = function addDevMiddlewares(app, webpackConfig) {
 
   const fs = middleware.fileSystem;
 
-
   app.all('/api/:api', (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');

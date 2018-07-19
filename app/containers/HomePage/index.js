@@ -14,6 +14,7 @@ import reducer from './reducer'
 import saga from './saga'
 import { Cookie } from 'utils/common'
 import Mock from 'mockjs'
+import LoadingIndicator from 'components/LoadingIndicator'
 
 class HomePage extends React.PureComponent {
     componentWillMount() {
@@ -22,7 +23,7 @@ class HomePage extends React.PureComponent {
     }
     render() {
         const { loading, error, list } = this.props
-        let ListContainer = list.map((item, index) => {
+        let ListContainer = loading ? <LoadingIndicator/> : list.map((item, index) => {
             return (
                 <li key={item.id}><span>用户ID: {item.id}</span><span>姓名: {item.name}</span><Link to="/detail">详细</Link></li>
             )
