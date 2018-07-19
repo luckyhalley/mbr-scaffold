@@ -15,4 +15,10 @@
     line-height: 18px;
     color:$front-color;
 }
-  
+.avatar {
+    width: pxTorem(100px);
+    height: pxTorem(100px);
+    display: inline-block; 
+    vertical-align: text-bottom;
+}
+    

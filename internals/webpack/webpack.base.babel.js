@@ -73,12 +73,13 @@ module.exports = options => ({
         ],
       },
       {
-        test: /\.(jpg|png|gif)$/,
+        test: /\.(jp(e)?g|png|gif)$/,
         use: [
           {
             loader: 'url-loader',
             options: {
               limit: 10 * 1024,
+              name: 'images/[name].[ext]?[hash:4]'
             },
           },
           {
